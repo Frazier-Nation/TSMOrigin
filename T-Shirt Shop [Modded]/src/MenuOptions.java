@@ -15,7 +15,28 @@ public class MenuOptions{
         return id;
     }
     
-    public String getDisplayValue() {
+    public String getDisplayValue(MenuOption e) {
+        switch (e) {
+            case EXIT:
+                displayValue = "Exit";
+                return displayValue;
+            case LIST_PRODUCTS:
+                displayValue = "List Products";
+                return displayValue;
+            case BUY_PRODUCT:
+                displayValue = "Buy Products";
+                return displayValue;
+            case FIND_PRODUCT:
+                displayValue = "Find Products";
+                return displayValue;
+            case SHOW_CART:
+                displayValue = "Show Cart";
+                return displayValue;
+            case CHECKOUT:
+                displayValue = "Checkout";
+                return displayValue;
+            
+        }
         return displayValue;
     }
 

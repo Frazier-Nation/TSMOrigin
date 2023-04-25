@@ -29,9 +29,10 @@ public class ShopRunner {
         Cart cart = new Cart(products);
         Shop shop = new Shop ("T-Shirt Mart", products);
         Menu menu = new Menu(new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8"))), shop, cart);
+        MenuOption[] enumValues = MenuOption.values();
         
 
         menu.greet();
-        menu.executeMenu();
-    }
-}
+        menu.executeMenu(MenuOption enumValues);
+    }//Ends main()
+}//ends ShopRunner Class
