@@ -1,7 +1,7 @@
 public class MenuOptions{
     private int id = 0;
     private String displayValue = "null";
-
+    private MenuOption menuop;
     public MenuOptions (int id, String displayValue){
         this.id = id;
         this.displayValue = displayValue;
@@ -40,10 +40,13 @@ public class MenuOptions{
         return displayValue;
     }
 
-    public void menuOptionFromOptionId(int optionId){
+    public MenuOption fromOptionId(int optionId){
         int passedId = optionId;
         MenuOption[] values = MenuOption.values();
+        return values[passedId];
+    }//ends fromOptionId ()
+
         
 
-    }
+    
 }//ends MenuOption class
