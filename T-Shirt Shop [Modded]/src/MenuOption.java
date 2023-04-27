@@ -1,6 +1,6 @@
     enum MenuOption{
 
-    EXIT("Exit"), LIST_PRODUCTS("List Products"), BUY_PRODUCT("Buy Product"), FIND_PRODUCT("Find Product"), SHOW_CART("Show Cart"), CHECKOUT("Checkout");
+    EXIT(0, "Exit"), LIST_PRODUCTS(1, "List Products"), BUY_PRODUCT(2, "Buy Product"), FIND_PRODUCT(3, "Find Product"), SHOW_CART(4, "Show Cart"), CHECKOUT(5, "Checkout");
     private int id = 0;
     private String displayValue = "null";
 
@@ -8,7 +8,8 @@
         
     }
 
-    MenuOption (String passedDisplayValue) {
+    MenuOption (int passedId, String passedDisplayValue) {
+        this.id = passedId;
         this.displayValue = passedDisplayValue;
     }//ends MenuOption Constr
     

@@ -93,7 +93,7 @@ public class Menu {
         System.out.println("Hello. Please enter your name:");
         String name = scanner.nextLine();
         //System.out.println("Welcome " + name + " to " + shop.getName());
-        String finalPrint = String.format("Welcome %1$s to %2$s", name, shop.getName());
+        String finalPrint = String.format("Welcome %1$s to %2$s.", name, shop.getName());
         System.out.println(finalPrint);        
     }
 
@@ -104,7 +104,7 @@ public class Menu {
         System.out.println("\n--Main Menu--");
         System.out.println("Select an option using one of the numbers shown\n");       
         for (MenuOption e : MenuOption.values()) {            
-            String loopString = String.format("%1$f: %2$s", e, e.getDisplayValue());
+            String loopString = String.format("%1$d: %2$s", e.getId(), e.getDisplayValue());
             System.out.println(loopString);          
             //System.out.print(i + ": ");
             //System.out.println(menuOptions[i]);
