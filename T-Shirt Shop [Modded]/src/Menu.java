@@ -13,7 +13,7 @@ public class Menu {
     private Scanner scanner = new Scanner(System.in);
     private Shop shop = new Shop();
     private Cart cart;
-    int numHandler = 0;
+    MenuOption enOption;
     /**
      * Class constructor, which expects a Scanner object
      * It allows for the user to specify how a Scanner is to
@@ -35,20 +35,19 @@ public class Menu {
      * All input is collected from standard in.
      */
     public void executeMenu() {
-        int menuChoice = 9;
+        
         do {            
             printMenu();
-            menuChoice = getNextIntFromUser();
-            if (menuChoice >= 0 || menuChoice <6){ 
-            switch (menuChoice){
-                case 0: exit();
+            enOption = MenuOption.fromOptionId(getNextIntFromUser());
+            switch (enOption){
+                case EXIT: exit();
                     break;
-                case 1: shop.printProducts();
+                case LIST_PRODUCTS: shop.printProducts();
                     break;
-                case 2: System.out.println(cart.addItem(scanner));
+                case BUY_PRODUCT: System.out.println(cart.addItem(scanner));
         
                     break;
-                case 3: 
+                case FIND_PRODUCT: 
                     System.out.println("Enter the item to search for:");
                     String itemToFind = getNextStringLineFromUser();
                     numHandler = shop.findProduct(itemToFind);
@@ -58,27 +57,24 @@ public class Menu {
                             System.out.println("That product was not found.");
                           }
                             break;
-                case 4: 
+                case SHOW_CART: 
                     if (cart.getSize() == 0){
                         System.out.println("The cart is empty. Please add at least one product to see it in the cart.");
                     } else {
                         cart.showDetails();
                     }
                     break;
-                case 5: 
+                case CHECKOUT: 
                     if (cart.getSize() == 0){
                         System.out.println("Your cart is currently empty. Please add at least one product to check out.");
-                    } else {
+                    } 
                         System.out.println(cart.checkOut());
-                    }
+                Default:
+                    System.out.println ("Please enter a valid choice");
                     break;
          
-              } //end Switch
-            }    else {
-              System.out.println ("Please enter a valid choice");
-          
-            } 
-        } while (menuChoice != 0);     
+                } //end Switch     
+        } while (enOption != EXIT);     
         
           
     
