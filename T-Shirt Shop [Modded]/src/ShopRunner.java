@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * When the application starts, the menu's greet and show methods are called.
  */
 public class ShopRunner {
+    
     /**
      * Main entry point to the application.
      * Asks the menu's greeting to be printed to standard out by calling its greet method.
@@ -28,11 +29,9 @@ public class ShopRunner {
         products.add(product4);
         Cart cart = new Cart(products);
         Shop shop = new Shop ("T-Shirt Mart", products);
-        Menu menu = new Menu(new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8"))), shop, cart);
-        MenuOption[] enumValues = MenuOption.values();
+        Menu menu = new Menu(new Scanner(System.in), shop, cart);
         
-
         menu.greet();
-        menu.executeMenu(MenuOption enumValues);
+        menu.executeMenu();
     }//Ends main()
 }//ends ShopRunner Class

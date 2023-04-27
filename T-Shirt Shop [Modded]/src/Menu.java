@@ -34,10 +34,9 @@ public class Menu {
      * All output is printed to standard out.
      * All input is collected from standard in.
      */
-    public void executeMenu(MenuOption enumValues) {
+    public void executeMenu() {
         int menuChoice = 9;
-        do {
-            
+        do {            
             printMenu();
             menuChoice = getNextIntFromUser();
             if (menuChoice >= 0 || menuChoice <6){ 
@@ -103,13 +102,10 @@ public class Menu {
      */
     private void printMenu() {
         System.out.println("\n--Main Menu--");
-        System.out.println("Select an option using one of the numbers shown\n");
-       
-        for (MenuOption e : MenuOption.values()) {
-            int i = 0;
-
-            String loopString = string.format("%1$f: %2$s", i, getDisplayValue(e);)
-            i++;
+        System.out.println("Select an option using one of the numbers shown\n");       
+        for (MenuOption e : MenuOption.values()) {            
+            String loopString = String.format("%1$f: %2$s", e, e.getDisplayValue());
+            System.out.println(loopString);          
             //System.out.print(i + ": ");
             //System.out.println(menuOptions[i]);
         }
