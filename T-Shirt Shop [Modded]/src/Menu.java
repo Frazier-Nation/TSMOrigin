@@ -13,17 +13,18 @@ public class Menu {
     private Scanner scanner = new Scanner(System.in);
     private Shop shop = new Shop();
     private Cart cart;
-    MenuOption enOption;
+    private MenuOption enOption;
     /**
      * Class constructor, which expects a Scanner object
      * It allows for the user to specify how a Scanner is to
      * be configured outside this class and for basic inversion of control.
      * @param scanner takes in a Scanner object to initialize
      */
-    public Menu(Scanner scanner, Shop shop, Cart cart) {
+    public Menu(Scanner scanner, Shop shop, Cart cart, MenuOption enOption) {
         this.shop = shop;
         this.scanner = scanner;
         this.cart = cart;
+        this.enOption = enOption;
         
     }
 
@@ -35,27 +36,26 @@ public class Menu {
      * All input is collected from standard in.
      */
     public void executeMenu() {
-        
+        int numHandler = 0;        
         do {            
             printMenu();
-            enOption = MenuOption.fromOptionId(getNextIntFromUser());
+            enOption = enOption.fromOptionId(getNextIntFromUser());
             switch (enOption){
                 case EXIT: exit();
                     break;
                 case LIST_PRODUCTS: shop.printProducts();
                     break;
-                case BUY_PRODUCT: System.out.println(cart.addItem(scanner));
-        
+                case BUY_PRODUCT: System.out.println(cart.addItem(scanner));        
                     break;
                 case FIND_PRODUCT: 
                     System.out.println("Enter the item to search for:");
                     String itemToFind = getNextStringLineFromUser();
                     numHandler = shop.findProduct(itemToFind);
                         if (numHandler != -1) {                    
-                            System.out.println(itemToFind + " was found and its product id is " + numHandler);
+                            System.out.println(String.format("%1$s was found and its product id is %2$f.", itemToFind, numHandler));
                         } else {
                             System.out.println("That product was not found.");
-                          }
+                        }
                             break;
                 case SHOW_CART: 
                     if (cart.getSize() == 0){
@@ -69,12 +69,13 @@ public class Menu {
                         System.out.println("Your cart is currently empty. Please add at least one product to check out.");
                     } 
                         System.out.println(cart.checkOut());
-                Default:
+                    break;
+                default:
                     System.out.println ("Please enter a valid choice");
                     break;
          
                 } //end Switch     
-        } while (enOption != EXIT);     
+        } while (enOption != MenuOption.EXIT);     
         
           
     

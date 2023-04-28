@@ -25,8 +25,7 @@ public class Cart {
             }
                                       
         } //ends for loop
-            String str = ("That item ID is invalid and could not be added to the cart.");
-            
+            String str = ("That item ID is invalid and could not be added to the cart.");            
             return str;           
     }//ends addItem()
             
@@ -38,15 +37,12 @@ public class Cart {
         System.out.println(itemCount);
 
         for (Product i : items){
-            String goBack = String.format("%1$s: $%2$.2f", i.getName(), i.getPrice());
-            System.out.println(goBack);
+            System.out.println(String.format("%1$s: $%2$.2f", i.getName(), i.getPrice()));
         }//ends Enhanced For
-        //System.out.println("\nPre-Tax Total: $" + total);
-        String preTaxString = String.format("\nPre-Tax Total: $%.2f", total);
-        System.out.println(preTaxString);
+        
+        System.out.println(String.format("\nPre-Tax Total: $%.2f", total));
         double newTotal = (total * taxrate);
-        String str = String.format("Post-Tax Total (10.00%% Tax): $%.2f", newTotal);
-        System.out.println(str);
+        System.out.println(String.format("Post-Tax Total (10.00%% Tax): $%.2f", newTotal));
         
         
 }//ends showDetails()
