@@ -25,8 +25,8 @@ class Shop {
         System.out.println("--Products--"); 
 
         for (Product count : products) { 
-            String str = String.format("ID %1$d: %2$s - $%3$.2f", count.getId(), count.getName(), count.getPrice());
-            System.out.println(str); 
+            //String str = String.format("ID %1$d: %2$s - $%3$.2f", count.getId(), count.getName(), count.getPrice());
+            System.out.println(String.format("ID %1$d: %2$s - $%3$.2f", count.getId(), count.getName(), count.getPrice())); 
 
         } //ends for loop 
 

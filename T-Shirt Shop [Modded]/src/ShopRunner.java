@@ -29,7 +29,8 @@ public class ShopRunner {
         products.add(product4);
         Cart cart = new Cart(products);
         Shop shop = new Shop ("T-Shirt Mart", products);
-        Menu menu = new Menu(new Scanner(System.in), shop, cart);
+        MenuOption argEnum = MenuOption.EXIT;
+        Menu menu = new Menu(new Scanner(System.in), shop, cart, argEnum);
         
         menu.greet();
         menu.executeMenu();
